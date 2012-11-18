@@ -1,0 +1,1 @@
+A django-based blog that uses mongodb as data store. It includes authentication mechanisms, such as django-registration-me and the default django_auth feature.  It can be re-used for various web projects.
