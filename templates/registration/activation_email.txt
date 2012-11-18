@@ -1,0 +1,5 @@
+Hi,
+You have just registered on the website 'http://www.jkoloke.org' as an administrator. Please click on this link http://127.0.0.1:8088/accounts/activate/{{ activation_key }}/ to activate your account. This link is only valid for {{ expiration_days }} days. 
+
+Regards,
+J. K. Oloke (Ph.D)

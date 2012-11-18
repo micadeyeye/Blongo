@@ -1,0 +1,12 @@
+Install virtualenv using "pip install virtualenv"
+http://virtualenvwrapper.readthedocs.org/en/latest/ ----> Setting VirtualEnv using VirtualWrapper (after installing virtualenv)
+django-mongodb.org/topics/setup.html ---> Installing Django-mongodb (after setting the virtual env with virtualwrapper)
+https://github.com/hmarr/mongoengine/pull/519 ---> Testing MongoDb app
+http://django-mongodb.org/tutorial.html
+http://www.tutorialspoint.com/python/time_strptime.htm
+https://01.org/android-ia/documentation/workstation-setup
+https://groups.google.com/forum/?fromgroups=#!topic/django-brasil/c_M3Fn1YYPY  -----> tuple settings.INSTALLED_APPs
+http://stackoverflow.com/questions/6892942/django-mongodb-problem  ------>  __init__() takes exactly 2 arguments (1 given)
+https://groups.google.com/forum/?fromgroups=#!topic/mongoengine-users/mzAdZ8kq2gI -----> settings.DATABASES is improperly configured. Please supply the ENGINE value
+https://gist.github.com/2986459 -----> make sure your SITE_ID contains a valid ObjectId string
+http://django-mongodb.org/troubleshooting.html ----> make sure your SITE_ID contains a valid ObjectId string.
