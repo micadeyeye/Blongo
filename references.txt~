@@ -1,7 +1,7 @@
 http://www.pip-installer.org/en/latest/installing.html#using-the-installer  -----> Install pip using its installer (note: get its prerequisites first)
 Then install virtualenv using "pip install virtualenv"
 http://virtualenvwrapper.readthedocs.org/en/latest/ ----> Set VirtualEnv using VirtualWrapper (after installing virtualenv)
-After setting the virtual env with virtualwrapper, run 'pip install -r requirements.txt'. The requirements.txt file is in this repo. Similar instructions are here - http://django-mongodb.org/topics/setup.html. But the former (i.e. requirements.txt) is stronly recommended.
+After setting the virtual env with virtualwrapper, run 'pip install -r requirements.txt'. The requirements.txt file is in this repo. Similar instructions are here - http://django-mongodb.org/topics/setup.html. But the former (requirements.txt) is stronly recommended.
 http://mongoengine.org/ -----> Next, install mongoengine using 'pip install mongoengine'. Finally, start a new django project called 'blongo' &  copy the contents in this repo to the blongo dir that was created.
 https://github.com/hmarr/mongoengine/pull/519 ---> Testing MongoDb app
 http://django-mongodb.org/tutorial.html
