@@ -1,0 +1,137 @@
+
+#banner {
+    border: 2px dashed #FFFFFF;
+    color: #0000FF;
+    font-family: Tahoma,Arial,Verdana,Sans-Serif;
+    font-size: 3.5em;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    width: 100%;
+}
+#search_textfield #searchterm {
+    background-color: #F0F0F0;
+    background-image: url("../images/search.jpg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    border-color: #000000;
+    border-radius: 5px 5px 5px 5px;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-top: 0.5em;
+    width: 28%;
+}
+#pagecontent {
+    margin: 0 auto;
+    width: 100%;
+}
+#mainpage {
+    background-color: #F0F0F0;
+    border: 5px solid #FFFFFF;
+    margin: 0 auto;
+    width: 75%;
+}
+#search_textfield {
+    border: 2px dashed #FFFFFF;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+#listofpresentations {
+    border: 2px dashed #FFFFFF;
+    height: 250px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+#viewpresentation {
+    border: 2px dashed #FFFFFF;
+    height: 365px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+#video {
+    text-align: center;
+    width: 35%;
+}
+#video #video_preview {
+    border: 1px dashed #FFFFFF;
+    height: 240px;
+    position: absolute;
+    text-align: center;
+    width: 322px;
+}
+#video #video_control, #video #player {
+    border: 1px dashed #FFFFFF;
+    height: 335px;
+    left: 15%;
+    position: absolute;
+    text-align: center;
+    width: 480px;
+}
+#author, #title, #date_published, #total_comments {
+    font-family: Tahoma,Arial,Verdana,Sans-Serif;
+    left: 50%;
+    padding-top: 10px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+#comments, #write_comment, #clips_controller {
+    left: 18%;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+#div_back {
+    position: absolute;
+    width: 35%;
+}
+#back {
+    background-color: #FF6600;
+    border-color: #FF6600;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 0.3em 1.5em;
+}
+#div_download {
+    left: 27%;
+    position: relative;
+    width: 60%;
+}
+#download {
+    background-color: #0099CC;
+    background-image: url("../images/download_.gif");
+    background-position: left center;
+    background-repeat: no-repeat;
+    border-color: #0099CC;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 0.3em 1.5em 0.3em 2em;
+}
+#viewpresentation #title {
+    font-weight: bold;
+    left: 15%;
+    padding-left: 1em;
+    padding-top: 0.3em;
+    position: relative;
+    text-align: left;
+}
+#msg_type_reply {
+    padding-left: 20px;
+    width: 480px;
+    word-wrap: break-word;
+}
+#msg_type_posted {
+    width: 480px;
+    word-wrap: break-word;
+}
+#indentation {
+    padding-left: 15px;
+}
+#footer {
+    font-size: 0.7em;
+    text-align: center;
+}

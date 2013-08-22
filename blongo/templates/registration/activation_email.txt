@@ -1,0 +1,6 @@
+Hi,
+You have just registered on the website 'http://www.jkoloke.org' as an administrator. Please click on this link http://164.138.31.47:8088/accounts/activate/{{ activation_key }}/ to activate your account. This link is only valid for {{ expiration_days }} days. 
+
+Regards,
+Site Adminstrator (Superuser),
+www.jkoloke.org

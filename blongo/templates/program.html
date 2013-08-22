@@ -1,0 +1,129 @@
+{% extends "header.html" %}
+{% comment %}
+
+Main page of Prof J.K. Oloke's website.
+
+{% endcomment %}
+
+{% block head %}
+    <title>The ACM DEV-4 Conference</title>
+    <link href="{{STATIC_URL}}blog.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+<div id="pagecontent">
+    <div  id="mainpage">
+
+<!-- header begins -->
+    <header>
+    <div id="banner">
+        <h1>The ACM DEV-4 Conference</h1>
+    </div>
+    </header>
+
+<!-- header ends -->
+<!-- sidebar for Navigations begins -->
+<div>
+    <section>
+    
+
+<ul>
+
+{% for profile in Profile %}
+{% autoescape off %}
+   <li>
+        {% if profile.details %}
+            {{ profile.details }}
+        {% endif %}
+    </li>
+{% endautoescape %}
+{% endfor %}
+
+</ul>
+
+    </section>
+</div>
+<!-- Sidebar for Navigation ends -->
+
+<!-- Content pane begins --->
+
+<div>
+<section>
+<!-- Cycle through entries -->
+<ul>
+    {% for section in Sections %}
+    <li>
+        <h1> {{ section.heading }} </h1>
+    </li>
+
+{% autoescape off %}
+   <li>
+        {% if section.content %}
+            {{ section.content }}
+        {% endif %}
+    </li>
+{% endautoescape %}
+    {% endfor %}
+</ul>
+
+
+<ul>
+    <li>
+        <h1> Selected Publications  [View All Publications] </h1>
+    </li>
+    {% for post in Posts %}
+    <li>
+{{post.authors}},
+        {% if post.selectedpublication %}
+        &nbsp;&quot;{{post.title}},&quot;&nbsp;
+        {% endif %}
+{% if post.papertype == "Journal" %}
+            published in the Journal: {{post.publisher}}
+ {% else %}
+        {% if post.papertype == "Conference" %}
+            published in the proceedings of: {{post.publisher}}
+        {% else %}
+            {% if post.papertype == "Book" %}
+                , published the book: {{post.publisher}}
+            {% else %}
+                {% if post.papertype == "Book Chapter" %}
+                        published as a book chapter in the book: {{post.publisher}}
+                {% else %}
+                    {% if post.papertype == "Report" %}
+                        published as a report in the report: {{post.publisher}},
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endif %}
+ {% endif %} {{post.additional_info}},&nbsp;{{post.date_published|date:"M d, Y"}}, pp.&nbsp;{{post.page_num}}. <br/><br/>
+
+
+       
+
+</li>
+    {% endfor %}
+<li>
+<h1><a href='{{SITE}}/admin/'>Login [Administrators only]</a>
+</li>
+</ul>
+
+</section>
+<!-- Cycle through entries -->
+
+</div>
+<!-- Content pane ends -->
+
+<!-- Sidebar for sponsors begin -->
+<div>
+<section>
+<img src="{{STATIC_URL}}images/patrons.png">
+</section>
+</div>
+<!-- Sidebar for sponsors end  -->
+        
+
+
+
+</div> <!-- mainpage closes -->
+</div> <!-- page content closes -->
+{% endblock %}
