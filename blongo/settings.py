@@ -3,7 +3,7 @@ import os
 APP_DIR = os.path.dirname( globals()['__file__'] )
 
 #lines added by micadeyeye to support the django-registration-me app
-SITE = '164.138.31.47'
+SITE = 'XXXXXX'
 DEFAULT_FROM_EMAIL = 'XXXX'
 SERVER_EMAIL = 'XXXX'
 EMAIL_USE_TLS = True
