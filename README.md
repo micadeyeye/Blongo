@@ -1,3 +1,5 @@
+::::This is a branch of the Blongo project. Blongo is reused here to make a (conference) website::::
+
 A django-based blog that uses mongodb as data store. It includes authentication mechanisms, such as django-registration-me and the default django_auth feature.  It can be re-used for various web projects.
 
 To get started, create a virtual env, install the project requirements and start a project called 'blongo'. In addition, pull this project and  copy its contents into your project. 
