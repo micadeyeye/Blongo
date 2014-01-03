@@ -1,0 +1,82 @@
+{% extends "header.html" %}
+{% comment %}
+
+Main page of the ACM DEV-4 conference website.
+
+{% endcomment %}
+
+{% block head %}
+    <title>The ACM DEV-4 Conference</title>
+    <link href="{{STATIC_URL}}blog.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+
+<div id="search_textfield"> <!-- Div encapsulates sidebar, contentpane and sponsors -->
+<div id="sidebar_and_contentpane"> <!-- Div encapsulates sidebar and contentpane -->
+<!-- sidebar for Navigations begins -->
+<div id="div_back">
+    <section>
+    <div>
+<div>Actions</div>
+<div>Submit a Paper</div>
+<div>Registration</div>
+<div>Authors Area</div>
+<div>Reviewers Area</div>
+<div><a href='{{SITE}}/admin/'>Site Administrator</a></div>
+</div>
+
+
+
+    </section>
+</div>
+<!-- Sidebar for Navigation ends -->
+
+<!-- Content pane begins --->
+
+<div id="div_contentpane">
+<section>
+<!-- Cycle through entries -->
+
+
+<ul>
+
+{% for profile in Profile %}
+{% autoescape off %}
+   <li>
+        {% if profile.details %}
+            {{ profile.details }} 
+        {% endif %}
+    </li>
+{% endautoescape %}
+{% endfor %}
+
+</ul>
+
+
+
+</section>
+<!-- Cycle through entries -->
+
+</div>
+<!-- Content pane ends -->
+
+</div> <!-- DIV for COntentpane and SIdebar CLOSES -->
+
+<!-- Sidebar for sponsors begin -->
+<div id="div_download">
+<section>
+<span>Sponsors</span><br/>
+<img src="{{STATIC_URL}}images/patrons.png">
+</section>
+</div>
+<!-- Sidebar for sponsors end  -->
+
+
+
+</div> <!-- Div that encapsulates sidebar, contentpane and sponsors  CLOSES-->
+</div> <!-- mainpage closes -->
+
+
+{% endblock %}

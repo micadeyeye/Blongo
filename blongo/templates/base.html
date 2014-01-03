@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+
+
+<div id="pagecontent">
+    <div  id="mainpage">
+
+<!-- header begins -->
+    <header>
+<div id="banner" style=" width: 990px; height: 300px; background-repeat: no-repeat; background-image: url('{{STATIC_URL}}images/_acmdev-4_header.png');">
+</div>
+  
+    </header>
+
+<!-- header ends -->
+  <div  id="search_textfield">
+    {% block body %}{% endblock %}
+    </body>
+</html>
+
