@@ -15,10 +15,10 @@ class Post(Document):
     authors = StringField(max_length=500, required=True)
     publisher = StringField(max_length=500, required=True)
     papertype = StringField(max_length=500, required=True)
-    additional_info = StringField(max_length=500, required=True)
-    page_num = StringField(max_length=500, required=True)
-    date_published = DateTimeField(required=True)
-    selectedpublication = BooleanField(default=False)
+    #additional_info = StringField(max_length=500, required=True)
+    #page_num = StringField(max_length=500, required=True)
+    #date_published = DateTimeField(required=True)
+    #selectedpublication = BooleanField(default=False)
 #    section = EmbeddedModelField('Section')
 
 class Profile(Document):

@@ -3,14 +3,18 @@ import os
 APP_DIR = os.path.dirname( globals()['__file__'] )
 
 #lines added by micadeyeye to support the django-registration-me app
-SITE = 'xxxxxx'
-DEFAULT_FROM_EMAIL = 'xxxxxx'
-SERVER_EMAIL = 'xxxxxx'
+SITE = '164.138.31.47'
+#DEFAULT_FROM_EMAIL = 'micadeyeyetest@gmail.com'
+DEFAULT_FROM_EMAIL = 'devworks.olu@gmail.com'
+#SERVER_EMAIL = 'micadeyeyetest@gmail.com'
+SERVER_EMAIL = 'devworks.olu@gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'xxxxxx'
-EMAIL_HOST_PASSWORD = 'xxxxxx'
+#EMAIL_HOST_USER = 'micadeyeyetest@gmail.com'
+EMAIL_HOST_USER = 'devworks.olu@gmail.com'
+#EMAIL_HOST_PASSWORD = 'mik123e4'
+EMAIL_HOST_PASSWORD = 'Password^456'
 ACCOUNT_ACTIVATION_DAYS = 2
 #above lines added by micadeyeye to support the django-registration-me app
 #below lines added by micadeyeye to support the django-mongodb app
@@ -34,7 +38,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('Michael Adeyeye', 'xxxxxx'),
+     ('Michael Adeyeye', 'micadeyeye@ngportal.com'),
 )
 
 MANAGERS = ADMINS
@@ -186,4 +190,3 @@ LOGGING = {
         },
     }
 }
-

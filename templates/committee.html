@@ -1,7 +1,7 @@
 {% extends "header.html" %}
 {% comment %}
 
-Main page of the ACM DEV-4 conference website.
+Main page of the ACM DEV-4 Conference website.
 
 {% endcomment %}
 
@@ -38,23 +38,65 @@ Main page of the ACM DEV-4 conference website.
 <div id="div_contentpane">
 <section>
 <!-- Cycle through entries -->
+    
+
 
 
 <ul>
-
-{% for profile in Profile %}
-{% autoescape off %}
-   <li>
-        {% if profile.details %}
-            {{ profile.details }} 
-        {% endif %}
+    <li>
+        <h1> Organizing Committee </h1>
     </li>
-{% endautoescape %}
-{% endfor %}
+    {% for post in Posts %}
+    <li>
+
+{% if post.papertype == "Organizing" %}
+            {{ post.authors }} 
+            &nbsp;&nbsp;&nbsp;&nbsp; {{post.publisher}} <br/><br/>
+
+
+ {% endif %}  
+
+
+       
+
+</li>
+    {% endfor %}
+
+<li>
+        <h1> Steering Committee </h1>
+    </li>
+    {% for post in Posts %}
+    <li>
+{% if post.papertype == "Steering" %}
+            {{ post.authors }} 
+            &nbsp;&nbsp;&nbsp;&nbsp; {{post.publisher}} <br/><br/>
+
+
+{% endif %}
+
+
+       
+
+</li>
+    {% endfor %}
+
+<li>
+        <h1> Technical Programme Committee </h1>
+    </li>
+    {% for post in Posts %}
+    <li>
+
+{% if post.papertype == "Technical" %}
+            {{ post.authors }} 
+            &nbsp;&nbsp;&nbsp;&nbsp; {{post.publisher}} <br/><br/>
+ 
+
+ {% endif %}
+
+</li>
+    {% endfor %}
 
 </ul>
-
-
 
 </section>
 <!-- Cycle through entries -->

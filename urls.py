@@ -27,6 +27,8 @@ urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'blongo.blogapp.views.logout_page'),
     url(r'^admin/$', 'blongo.blogapp.views.admin_page'),
+    url(r'^committee/$', 'blongo.blogapp.views.committee_page'),
+    url(r'^admin/committee/$', 'blongo.blogapp.views.committee_admin_page'),
     #next line added by micadeyeye to support the django-registration-me app
     url(r'^accounts/', include('blongo.registration.urls')),
 

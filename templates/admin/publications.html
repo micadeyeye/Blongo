@@ -1,4 +1,4 @@
-{% extends "admin/admin.html" %}
+{% extends "admin/header.html" %}
 {% comment %}
 
 This page edits publications
@@ -6,7 +6,7 @@ This page edits publications
 {% endcomment %}
 
 {% block content %}
-<form method="post" action="http://127.0.0.1:8088/admin/publications/">
+<form method="post" action="{{SITE}}/admin/publications/">
       {% csrf_token %}
       <ul>
         <li>
@@ -60,7 +60,7 @@ This page edits publications
 
 <ul>
     <li>
-        <h1> Publications [View All Publications] [ <a href="http://127.0.0.1:8088/admin/publications/">Add new</a> ] </h1>
+        <h1> Publications [View All Publications] [ <a href="{{SITE}}/admin/publications/">Add new</a> ] </h1>
     </li>
     {% for post in Posts %}
     <li>
@@ -86,7 +86,7 @@ This page edits publications
                 {% endif %}
             {% endif %}
         {% endif %}
- {% endif %} {{post.additional_info}},&nbsp; {{post.date_published|date:"M d, Y" }}, pp.&nbsp;{{post.page_num}}.  [ <a href="http://127.0.0.1:8088/admin/delete?id={{post.id}}">Delete</a> ] [ <a href="http://127.0.0.1:8088/admin/update?id={{post.id}}">Update</a> ] <br/><br/>
+ {% endif %} {{post.additional_info}},&nbsp; {{post.date_published|date:"M d, Y" }}, pp.&nbsp;{{post.page_num}}.  [ <a href="{{SITE}}admin/delete?id={{post.id}}">Delete</a> ] [ <a href="{{SITE}}/admin/update?id={{post.id}}">Update</a> ] <br/><br/>
 
 
        

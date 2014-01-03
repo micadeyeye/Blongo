@@ -100,15 +100,15 @@ def update(request):
             template = 'admin/index.html'
             # update field values and save to mongo
             post.title = request.POST['title']
-            str_date_published = request.POST['date_published']
-            post.date_published = datetime.fromtimestamp(mktime(time.strptime(str_date_published, "%b %d %Y")))
+            #str_date_published = request.POST['date_published']
+            #post.date_published = datetime.fromtimestamp(mktime(time.strptime(str_date_published, "%b %d %Y")))
             post.publisher = request.POST['publisher']
             post.papertype = request.POST['papertype']
             post.authors = request.POST['authors']
-            post.additional_info = request.POST['additional_info']
-            post.page_num = request.POST['page_num']
-            if request.POST.get('selectedpublication', True):
-                post.selectedpublication = True;
+            #post.additional_info = request.POST['additional_info']
+            #post.page_num = request.POST['page_num']
+            #if request.POST.get('selectedpublication', True):
+            #    post.selectedpublication = True;
             post.save()
             params = {'Posts': Post.objects} 
 
@@ -172,6 +172,7 @@ def delete(request):
 
 
 
+
 @login_required
 def admin_page(request):
     """
@@ -192,3 +193,53 @@ def logout_page(request):
     """
     logout(request)
     return HttpResponseRedirect('/')
+    
+def committee_page(request):
+    """
+    If users are authenticated, direct them to the main page. Otherwise, take
+    them to the login page.
+    """
+    # Get all posts from DB
+    posts = Post.objects
+
+    return render_to_response('committee.html', {'Posts': posts},
+                              context_instance=RequestContext(request))
+
+@login_required
+def committee_admin_page(request):
+    """
+    If users are authenticated, direct them to the main page. Otherwise, take
+    them to the login page.
+    """
+    if request.method == 'POST':
+       # save new post
+       title = request.POST['title']
+       authors = request.POST['authors']
+       publisher = request.POST['publisher']
+       papertype = request.POST['papertype']
+       """
+       page_num = request.POST['page_num']
+       additional_info = request.POST['additional_info']
+#       selectedpublication = request.POST['selectedpublication']
+       str_date_published = request.POST['date_published']
+       """
+       post = Post(title=title)
+#       post.date_published = datetime.datetime.now() 
+       """
+       post.date_published = datetime.fromtimestamp(mktime(time.strptime(str_date_published, "%b %d %Y")))
+       post.page_num = page_num
+       post.additional_info = additional_info
+       if request.POST.get('selectedpublication', True):
+           post.selectedpublication = True;
+       """
+       post.authors = authors
+       post.papertype = papertype
+       post.publisher = publisher
+       post.save()
+
+    # Get all posts from DB
+    posts = Post.objects
+
+    return render_to_response('admin/committee.html', {'Posts': posts},
+                              context_instance=RequestContext(request))                              
+

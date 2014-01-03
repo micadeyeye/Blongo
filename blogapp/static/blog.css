@@ -1,10 +1,13 @@
 body {
   font-family: arial;
 }
+a {
+text-decoration: none;
+}
 
 h1, h2 {
   text-shadow: white 0px 1px 0px;
-  background-color: lightblue;
+  background-color: #6390cb;
 }
 
 h1 {
@@ -16,9 +19,9 @@ ul {
 }
 
 input[type=submit] {
-  background-color : lightgreen;
-  border-color : lightgreen;
-  text-shadow: white 0px 1px 0px;
+  background-color : #6390cb;
+  border-color : #6390cb;
+  text-shadow: #ffffff 0px 1px 0px;
 }
 
 .calendar {
@@ -117,3 +120,65 @@ input[type=submit] {
 				border: 1px solid #FED22F;
 				color: #363636;
 			}
+
+
+
+
+
+
+
+
+
+#banner {
+    border: 0px dashed #FFFFFF;
+    color: #0000FF;
+    font-family: Tahoma,Arial,Verdana,Sans-Serif;
+    font-size: 3.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#pagecontent {
+    margin: 0 auto;
+    width: 100%;
+}
+#mainpage {
+    background-color: #a0c0cf;
+    border: 0px solid #FFFFFF;
+    margin: 0 auto;
+    width: 987px;
+}
+#search_textfield {
+    border: 0px solid #FFFFFF;
+    top: 0;
+    width: 100%;
+}
+#search_textfield #sidebar_and_contentpane {
+    width:  60%;
+    position: absolute;
+    border: 2px dashed #000000;
+}
+#search_textfield #div_back {
+    position: absolute;
+    width: 15%;
+    border: 2px dashed #000000;
+}
+#div_contentpane {
+    left: 16%;
+    position: relative;
+    width: 80%;
+}
+#div_download {
+    left: 81%;
+    position: relative;
+    width: 18%;
+    border: 2px dashed #000000;
+}
+#footer {
+    font-size: 0.7em;
+    text-align: center;
+}
+#profile, .nicEdit-main{
+    width: 600px;
+    height: 200px;
+}

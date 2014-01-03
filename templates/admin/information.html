@@ -1,162 +1,118 @@
 {% extends "admin/header.html" %}
 {% comment %}
 
-This page edits publications
+Main page of the admin.
 
 {% endcomment %}
 
-{% block content %}
+{% block title %}
+admin
+{% endblock %}
 
-    <form method="post" action="{{SITE}}/admin/update/">
-      {% csrf_token %}
-      <ul>
-        {% for profile in Profile %}
-        <li><input type="hidden" name="id" value="{{profile.id}}"></li>
-        <li>
-        <textarea name="profile" Placeholder="Enter Profile" id="profile">
-                {% if profile.details %}
-                    {{ profile.details }}
-                {% endif %}
-        </textarea>
-        </li>
-        {% endfor %} 
-        <li>
-        <input type="submit" value="Update Profile">
-        </li>
-        </ul>
-        </form>
-   <form method="post" action="{{SITE}}/admin/update/">
+{% block content %}
+<!-- header begins -->
+<div>
+    <section>
+        <h2> Home| Call for Papers | Program | Committee | Venue | Information {Hotel, Visa, City} | Contact Us</h2>
+        <h2>Welcome {{ user.username }}</h2>
+        <p>This is the main page of the web admin.</p>
+
+        
+
+    
+   </section>
+</div>
+<!-- header ends -->
+<!-- sidebar for Navigations begins -->
+<div>
+    <section>
+    <div>
+<div>Actions</div>
+<div>Submit a Paper</div>
+<div>Registration</div>
+<div>Authors Area</div>
+<div>Reviewers Area</div>
+</div>
+
+
+
+    </section>
+</div>
+<!-- Sidebar for Navigation ends -->
+
+<!-- Content pane begins --->
+
+<div>
+<section>
+<!-- Cycle through entries -->
+
+
+
+
+
+<ul>
+    {% for section in Sections %}
+    <li>
+        <h1>{{ section.heading }} [ <a href="{{STATIC_URL}}/admin/delete?id={{section.id}}">Delete</a> ] [ <a href="{{SITE}}/admin/update?id={{section.id}}">Update</a> ]</h1>
+    </li>
+
+{% autoescape off %}
+   <li>
+        {% if section.content %}
+            {{ section.content }}
+        {% endif %}
+    </li>
+{% endautoescape %}
+    {% endfor %}
+</ul>
+
+ <form method="post" action="{{SITE}}/admin/sections/">
       {% csrf_token %}
         <ul>
         <li>
-        <input type="hidden" name="id" value="{{section.id}}">
+        <input type="hidden" name="id" value="{{post.id}}">
         </li>
         <li>Heading:<br/>
-          <input type="text" name="heading" placeholder="Enter Content" value="{{section.heading}}" required/>
+          <input type="text" name="heading" placeholder="Enter Content" required/>
         </li>
         <li>
         <textarea name="content" Placeholder="Enter content" style="width: 300px; height: 100px;">
-        {{section.content}}
         </textarea>
         </li>
         <li>
-          <input type="submit" value="Update Section">
+          <input type="submit" value="Add Section">
         </li>
         </ul>
     </form>
-    <form method="post" action="{{SITE}}/admin/update/">
-      {% csrf_token %}
-      <ul>
-        <li><input type="hidden" name="id" value="{{post.id}}"></li>
-        <li>
-          <input type="text" name="title" placeholder="Post Title" 
-             value="{{post.title}}" required>
-          </li>
-        {% comment %}
-<!--
-        <li>
-<input id="datepick" name="date_published" class="date-pick"  placeholder="Post Date Published" value="{{post.date_published|date:"M d Y"}}" required />
-		<script type="text/javascript">
-			new datepickr('datepick', { dateFormat: 'M d Y' });
-		</script>
 
-        </li>
--->
-        {% endcomment %}
-        <li>Enter Committee:<br/>
-          <input type="text" name="publisher" placeholder="Paper Conference/Publisher" 
-             value="{{post.publisher}}" required>
-        </li>
-        <li>Select Committee:<br/>
-{% if post.papertype == "Organizing" %}
-    <select type="select-one" name="papertype">
-    <option value="Organizing" selected>Organizing</option>
-    <option value="Steering">Steering</option>
-    <option value="Technical">Technical</option>
-    <!-- 
-    <option value="Book Chapter">Book Chapter</option>
-    <option value="Report">Report</option>
-    -->
-    </select>
-{% else %}
-    {% if post.papertype == "Steering" %}
-        <select type="select-one" name="papertype">
-        <option value="Organizing">Organizing</option>
-        <option value="Steering" selected>Steering</option>
-        <option value="Technical">Technical</option>
-        {% comment %}
-        <!--
-        <option value="Book Chapter">Book Chapter</option>
-        <option value="Report">Report</option>
-        -->
-        {% endcomment %}
-        </select>
-    {% else %}
-        {% if post.papertype == "Technical" %}
-            <select type="select-one" name="papertype">
-            <option value="Organizing">Organizing</option>
-            <option value="Steering">Steering</option>
-            <option value="Technical" selected>Technical</option>
-            {% comment %}
-            <!--
-            <option value="Book Chapter">Book Chapter</option>
-            <option value="Report">Report</option>
-            -->
-            {% endcomment %}
-            </select>
-        {% comment %}
-        <!--
-        {% else %}
-            {% if post.papertype == "Book Chapter" %}
-                <select type="select-one" name="papertype">
-                <option value="Conference">Conference</option>
-                <option value="Journal">Journal</option>
-                <option value="Book">Book</option>
-                <option value="Book Chapter" selected>Book Chapter</option>
-                <option value="Report">Report</option>
-                </select>
-            {% else %}
-                 <select type="select-one" name="papertype">
-                <option value="Conference">Conference</option>
-                <option value="Journal">Journal</option>
-                <option value="Book">Book</option>
-                <option value="Book Chapter">Book Chapter</option>
-                <option value="Report" selected>Report</option>
-                </select>
-            {% endif %}
-            -->
-`       {% endcomment %}
-        {% endif %}        
 
-    {% endif %}
-{% endif %}
-        </li>
-{% comment %}
-<!--
-    <li>Enter Page number:<br/>
-          <input type="text" name="page_num" placeholder="Enter Page Number" 
-             value="{{post.page_num}}" required>
-        </li>
-        <li>Enter Additional Information:<br/>
-          <textarea name="additional_info" placeholder="Additional Info" 
-            rows=5 cols=50 required>
-            {{post.additional_info}}
-          </textarea>
-        </li>
--->
-{% endcomment %}
-        <li>Enter Fullname:<br/>
-          <textarea name="authors" placeholder="Enter Authors" 
-            rows=5 cols=50 required>
-            {{post.authors}}
-          </textarea>
-        </li>
-        <li>
-          <input type="submit" value="Update Committee">
-        </li>
-      </ul>
-    </form>
+<ul>
+<li>
+<h1><a href='{{SITE}}/admin/'>Login [Administrators only]</a>
+</li>
+</ul>
 
+</section>
+<!-- Cycle through entries -->
+
+</div>
+<!-- Content pane ends -->
+
+<!-- Sidebar for sponsors begin -->
+<div>
+<section>
+<img src="{{STATIC_URL}}images/patrons.png">
+</section>
+</div>
+<!-- Sidebar for sponsors end  -->
+        
+
+
+        
+    
+
+
+    
 <script type="text/javascript">
 /* NicEdit - Micro Inline WYSIWYG
  * Copyright 2007-2008 Brian Kirchoff
@@ -456,8 +412,7 @@ var nicEditors = {
 		//var prof_textarea = document.form["index"].getElementsByName("profile");
 		var textareas = document.getElementsByTagName("textarea");
 			//nicEditors.editors.push(new nicEditor(nicOptions).panelInstance(prof_textarea));
-                 nicEditors.editors.push(new nicEditor(nicOptions).panelInstance(textareas[0]));
-            	nicEditors.editors.push(new nicEditor(nicOptions).panelInstance(textareas[1]));
+			nicEditors.editors.push(new nicEditor(nicOptions).panelInstance(textareas[0]));
 		return nicEditors.editors;
 	},
 	
@@ -1636,4 +1591,5 @@ nicEditors.registerPlugin(nicPlugin,nicUploadOptions);
 	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 </script>
 
+    </section>
 {% endblock %}

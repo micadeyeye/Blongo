@@ -1,4 +1,4 @@
-{% extends "admin/admin.html" %}
+{% extends "admin/header.html" %}
 {% comment %}
 
 Main page of the admin.
@@ -10,18 +10,56 @@ admin
 {% endblock %}
 
 {% block content %}
+          <div  id="search_textfield">
+          <span>Welcome {{ user.username }} | :::Home:::</span>
+          </div>
+<div id="search_textfield"> <!-- Div encapsulates sidebar, contentpane and sponsors -->
+<div id="sidebar_and_contentpane"> <!-- Div encapsulates sidebar and contentpane -->
+<!-- sidebar for Navigations begins -->
+<div id="div_back">
     <section>
-        <h2>Welcome, {{ user.username }}</h2>
-        <p>This is the main page of the web admin.</p>
+    <div>
+<div>Actions</div>
+<div>Submit a Paper</div>
+<div>Registration</div>
+<div>Authors Area</div>
+<div>Reviewers Area</div>
+</div>
 
-        
-           <div name="header">Prof. J. K. Oloke</div>
-   <form method="post" action="http://127.0.0.1:8088/admin/profile/">
+
+
+    </section>
+</div>
+<!-- Sidebar for Navigation ends -->
+
+<!-- Content pane begins --->
+
+<div id="div_contentpane">
+<section>
+<!-- Cycle through entries -->
+
+
+<ul>
+
+{% for profile in Profile %}
+{% autoescape off %}
+   <li>
+        {% if profile.details %}
+            {{ profile.details }} [ <a href="{{SITE}}/admin/delete?id={{profile.id}}">Delete</a> ] [ <a href="{{SITE}}/admin/update?id={{profile.id}}">Update</a> ]
+        {% endif %}
+    </li>
+{% endautoescape %}
+{% endfor %}
+
+</ul>
+
+         
+   <form method="post" action="{{SITE}}/admin/profile/">
       {% csrf_token %}
       <ul>
         <li><input type="hidden" name="id" value="{{profile.id}}"></li>
         <li>
-        <textarea name="profile" Placeholder="Enter Profile" style="width: 300px; height: 100px;">
+        <textarea name="profile" Placeholder="Enter Profile" id="profile">
         </textarea>
         </li>
         <li>
@@ -30,98 +68,37 @@ admin
         </ul>
         </form>
 
-    <form method="post" action="http://127.0.0.1:8088/admin/sections/">
-      {% csrf_token %}
-        <ul>
-        <li>
-        <input type="hidden" name="id" value="{{post.id}}">
-        </li>
-        <li>Heading:<br/>
-          <input type="text" name="heading" placeholder="Enter Content" required/>
-        </li>
-        <li>
-        <textarea name="content" Placeholder="Enter content" style="width: 300px; height: 100px;">
-        </textarea>
-        </li>
-        <li>
-          <input type="submit" value="Add Section">
-        </li>
-        </ul>
-    </form>
-    
-    
-       <!-- Cycle through entries -->
-<ul>
+   
 
-{% for profile in Profile %}
-{% autoescape off %}
-   <li>
-        {% if profile.details %}
-            {{ profile.details }} [ <a href="http://127.0.0.1:8088/admin/delete?id={{profile.id}}">Delete</a> ] [ <a href="http://127.0.0.1:8088/admin/update?id={{profile.id}}">Update</a> ]
-        {% endif %}
-    </li>
-{% endautoescape %}
-{% endfor %}
 
-</ul>
 
-<ul>
-    {% for section in Sections %}
-    <li>
-        <h1>{{ section.heading }} [ <a href="http://127.0.0.1:8088/admin/delete?id={{section.id}}">Delete</a> ] [ <a href="http://127.0.0.1:8088/admin/update?id={{section.id}}">Update</a> ]</h1>
-    </li>
-
-{% autoescape off %}
-   <li>
-        {% if section.content %}
-            {{ section.content }}
-        {% endif %}
-    </li>
-{% endautoescape %}
-    {% endfor %}
-</ul>
 
 
 <ul>
-    <li>
-        <h1> Publications [View All Publications] [ <a href="http://127.0.0.1:8088/admin/publications/">Add new</a> ] </h1>
-    </li>
-    {% for post in Posts %}
-    <li>
-{{ post.authors }}, 
-        {% if post.selectedpublication %}
-        &nbsp;&quot;{{post.title}},&quot;&nbsp;
-        {% endif %}
-{% if post.papertype == "Journal" %}
-            published in the Journal: {{post.publisher}}
- {% else %}
-        {% if post.papertype == "Conference" %}
-            published in the proceedings of: {{post.publisher}}
-        {% else %}
-            {% if post.papertype == "Book" %}
-                , published the book: {{post.publisher}}
-            {% else %}
-                {% if post.papertype == "Book Chapter" %}
-                        published as a book chapter in the book: {{post.publisher}}
-                {% else %}
-                    {% if post.papertype == "Report" %}
-                        published as a report in the report: {{post.publisher}},
-                    {% endif %}
-                {% endif %}
-            {% endif %}
-        {% endif %}
- {% endif %} {{post.additional_info}},&nbsp; {{post.date_published|date:"M d, Y"}}, pp.&nbsp; {{post.page_num}}.  [ <a href="http://127.0.0.1:8088/admin/delete?id={{post.id}}">Delete</a> ] [ <a href="http://127.0.0.1:8088/admin/update?id={{post.id}}">Update</a> ] <br/><br/>
-
-
-       
-
+<li>
+<h1><a href='{{SITE}}/admin/'>Login [Administrators only]</a>
 </li>
-    {% endfor %}
 </ul>
 
-
-
+</section>
 <!-- Cycle through entries -->
+
+</div>
+<!-- Content pane ends -->
+
+</div> <!-- DIV for COntentpane and SIdebar CLOSES -->
+
+<!-- Sidebar for sponsors begin -->
+<div id="div_download">
+<section>
+<span>Sponsors</span><br/>
+<img src="{{STATIC_URL}}images/patrons.png">
+</section>
+</div>
+<!-- Sidebar for sponsors end  -->
+        
+
+
         
     
 
@@ -1605,5 +1582,9 @@ nicEditors.registerPlugin(nicPlugin,nicUploadOptions);
 	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 </script>
 
-    </section>
+
+</div> <!-- Div that encapsulates sidebar, contentpane and sponsors  CLOSES-->
+</div> <!-- mainpage closes -->
+
+
 {% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% comment %}
+This is the main template for all portal pages.
+{% endcomment %}
+
+{% block head %}
+    <title>The ACM DEV-4 Conference | {% block title %}{% endblock %}</title>
+    <link href="{{STATIC_URL}}blog.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{{STATIC_URL}}datepickr.js"></script>
+{% endblock %}
+
+{% block body %}
+ 
+
+
+      <h2> <a href="/admin/"> Home </a> | Call for Papers | Program | <a href='{{SITE}}/admin/committee'> Committee</a> | Venue | Information | Contact Us</h2>
+      <span><a href="/logout/">logout</a></span>
+            </div>
+
+
+
+    {% block content %}{% endblock %}
+
+<div id="footer">
+<p>&copy;2013 ACM DEV-4<br /> 
+      Contact: <a href='http://www.ngportal.com/asmicom' target='_blank'>Asmic Computers</a>
+</p>
+</div>
+</div> <!-- page content closes -->
+{% endblock %}
